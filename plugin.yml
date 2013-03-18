@@ -1,0 +1,10 @@
+name: massivehat
+version: 1.0.0
+main: com.massivecraft.massivehat.MassiveHat
+depend: [mcore]
+# -------------------------------------------- #
+# THE REAL NODES
+# -------------------------------------------- #
+permissions:
+  massivehat.use: {description: wear any block as a hat, default: false}
+  massivehat.waruse: {description: wear any block as a hat in war-arenas, default: false}

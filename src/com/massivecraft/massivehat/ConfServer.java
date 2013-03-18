@@ -13,7 +13,7 @@ public class ConfServer extends SimpleConfig
 	
 	private static transient ConfServer i = new ConfServer();
 	public static ConfServer get() { return i; }
-	private ConfServer() { super(MassiveHat.get()); }
+	public ConfServer() { super(MassiveHat.get()); }
 	
 	// -------------------------------------------- //
 	// FIELDS

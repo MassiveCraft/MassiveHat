@@ -8,7 +8,7 @@ import com.massivecraft.mcore.MCore;
 import com.massivecraft.mcore.store.Entity;
 import com.massivecraft.mcore.util.MUtil;
 
-public class Conf extends Entity<Conf, String>
+public class Conf extends Entity<Conf>
 {
 	// -------------------------------------------- //
 	// META

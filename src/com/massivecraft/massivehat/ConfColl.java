@@ -4,7 +4,7 @@ import com.massivecraft.mcore.MCore;
 import com.massivecraft.mcore.store.Coll;
 import com.massivecraft.mcore.store.MStore;
 
-public class ConfColl extends Coll<Conf, String>
+public class ConfColl extends Coll<Conf>
 {
 	// -------------------------------------------- //
 	// INSTANCE & CONSTRUCT
@@ -14,7 +14,7 @@ public class ConfColl extends Coll<Conf, String>
 	public static ConfColl get() { return i; }
 	private ConfColl()
 	{
-		super(MStore.getDb(ConfServer.dburi), MassiveHat.get(), "ai", Const.COLLECTION_BASENAME_CONF, Conf.class, String.class, true);
+		super(Const.COLLECTION_BASENAME_CONF, Conf.class, MStore.getDb(ConfServer.dburi), MassiveHat.get(), true, false);
 	}
 	
 	// -------------------------------------------- //

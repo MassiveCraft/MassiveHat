@@ -7,7 +7,6 @@ public class OldCmd extends MCommand
 {	
 	public OldCmd()
 	{
-		super();
 		this.setAliases(ConfServer.aliasesOld);
 		this.setErrorOnToManyArgs(false);
 		this.addRequirements(ReqIsPlayer.get());

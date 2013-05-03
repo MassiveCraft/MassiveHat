@@ -25,7 +25,8 @@ public class ConfColl extends Coll<Conf>
 	public void init()
 	{
 		super.init();
-		this.get(MCore.INSTANCE);
+		
+		Conf.i = this.get(MCore.INSTANCE);
 	}
 	
 }

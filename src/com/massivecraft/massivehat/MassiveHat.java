@@ -26,7 +26,7 @@ public class MassiveHat extends MPlugin
 	public OldCmd getOldCmd() { return this.oldCmd; }
 	
 	// -------------------------------------------- //
-	// OVERRIED
+	// OVERRIDE
 	// -------------------------------------------- //
 	
 	@Override
@@ -45,10 +45,7 @@ public class MassiveHat extends MPlugin
 		
 		// Commands
 		this.oldCmd = new OldCmd();
-		if (this.oldCmd.getAliases() != null && this.oldCmd.getAliases().size() > 0)
-		{
-			this.oldCmd.register(this, true);
-		}
+		this.oldCmd.register(this);
 		
 		postEnable();
 	}

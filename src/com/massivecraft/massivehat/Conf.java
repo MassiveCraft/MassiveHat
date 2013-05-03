@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.massivecraft.mcore.MCore;
 import com.massivecraft.mcore.store.Entity;
 import com.massivecraft.mcore.util.MUtil;
 
@@ -14,10 +13,8 @@ public class Conf extends Entity<Conf>
 	// META
 	// -------------------------------------------- //
 	
-	public static Conf get()
-	{
-		return ConfColl.get().get(MCore.INSTANCE);
-	}
+	protected static transient Conf i;
+	public static Conf get() { return i; }
 	
 	// -------------------------------------------- //
 	// OVERRIDE

@@ -43,6 +43,7 @@ public class MainListener implements Listener
 	// -------------------------------------------- //
 	
 	// This performs the actual switch
+	@SuppressWarnings("deprecation")
 	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void hatSwitch(InventoryClickEvent event)
     {

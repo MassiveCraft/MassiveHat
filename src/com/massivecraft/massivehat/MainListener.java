@@ -9,8 +9,11 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
+import com.massivecraft.mcore.util.InventoryUtil;
 import com.massivecraft.mcore.util.Txt;
 
 public class MainListener implements Listener
@@ -43,23 +46,27 @@ public class MainListener implements Listener
 	// -------------------------------------------- //
 	
 	// This performs the actual switch
-	@SuppressWarnings("deprecation")
-	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void hatSwitch(InventoryClickEvent event)
     {
 		// If a player is clicking their hat slot ...
 		final Player me = getHattingPlayer(event);
 		if (me == null) return;
 		
+		final ItemStack current = event.getCurrentItem();
+		final ItemStack cursor = event.getCursor();
+		final PlayerInventory inv = me.getInventory();
+		final InventoryView view = event.getView();
+		
 		// ... and they are holding something ...
-		if (event.getCursor().getAmount() == 0) return;
-		if (event.getCursor().getType() == Material.AIR) return;
+		if (cursor.getAmount() == 0) return;
+		if (cursor.getType() == Material.AIR) return;
 		
 		// ... and it's a block ...
-		if (event.getCursor().getType().isBlock() == false) return;
+		if (cursor.getType().isBlock() == false) return;
 		
 		// ... and it isn't a pumpkin ..
-		if (event.getCursor().getType() == Material.PUMPKIN) return;
+		if (cursor.getType() == Material.PUMPKIN) return;
 		
 		// ... check war arena ...
 		if (MassiveHat.isInWarArena(me) && ! Perm.WARUSE.has(me, true)) return;
@@ -74,39 +81,25 @@ public class MainListener implements Listener
 			return;
 		}
 		
-		// ... if they do we switch the slot contents ...
-		ItemStack current = event.getCurrentItem();
-		ItemStack cursor = event.getCursor();
+		// ... perform the switch ...
+		event.setResult(Result.DENY);
 		
-		event.setCurrentItem(cursor);
-		event.setCursor(current);
-		
-		event.setResult(Result.ALLOW);
-		
-		// ... and report the success!
-		for(String line : Conf.get().getMsgCan())
+		Bukkit.getScheduler().scheduleSyncDelayedTask(MassiveHat.get(), new Runnable()
 		{
-			me.sendMessage(Txt.parse(line));
-		}
-    }
-	
-	@SuppressWarnings("deprecation")
-	@EventHandler(priority = EventPriority.MONITOR)
-    public void hatUpdate(InventoryClickEvent event)
-    {
-		// If a player is clicking their hat slot ...
-		final Player player = getHattingPlayer(event);
-		if (player == null) return;
-		
-		// ... force an update update to avoid odd client bugs. 
-		
-		Bukkit.getScheduler().scheduleSyncDelayedTask(MassiveHat.get(), new Runnable(){
 			@Override
 			public void run()
 			{
-				player.updateInventory();
+				inv.setHelmet(cursor);
+				view.setCursor(current);
+				InventoryUtil.update(me);
 			}
 		});
+		
+		// ... and report the success!
+		for (String line : Conf.get().getMsgCan())
+		{
+			me.sendMessage(Txt.parse(line));
+		}
     }
 	
 	public static Player getHattingPlayer(InventoryClickEvent event)
@@ -118,7 +111,6 @@ public class MainListener implements Listener
 		if (event.getView().getType() != InventoryType.CRAFTING) return null;
 		
 		// ... and they are clicking their hat slot ...
-		
 		if (event.getRawSlot() != HAT_SLOT_ID) return null;
 		
 		// ... then it is indeed a "hatting" player :P

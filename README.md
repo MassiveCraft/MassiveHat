@@ -1,3 +1,3 @@
-<a href="http://massivecraft.com/plugins/massivehat">
+<a href="http://massivecraft.com/massivehat">
 ![MassiveHat Logotype](https://raw.github.com/MassiveCraft/MassiveHat/master/media/logo300.png)<br>
-<b>http://massivecraft.com/plugins/massivehat</b></a>
+<b>http://massivecraft.com/massivehat</b></a>

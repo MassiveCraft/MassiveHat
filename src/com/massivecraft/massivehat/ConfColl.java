@@ -14,7 +14,7 @@ public class ConfColl extends Coll<Conf>
 	public static ConfColl get() { return i; }
 	private ConfColl()
 	{
-		super(Const.COLLECTION_BASENAME_CONF, Conf.class, MStore.getDb(ConfServer.dburi), MassiveHat.get(), true, false);
+		super(Const.COLLECTION_BASENAME_CONF, Conf.class, MStore.getDb(ConfServer.dburi), MassiveHat.get());
 	}
 	
 	// -------------------------------------------- //
@@ -26,7 +26,7 @@ public class ConfColl extends Coll<Conf>
 	{
 		super.init();
 		
-		Conf.i = this.get(MCore.INSTANCE);
+		Conf.i = this.get(MCore.INSTANCE, true);
 	}
 	
 }

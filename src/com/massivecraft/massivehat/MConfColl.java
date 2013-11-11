@@ -4,17 +4,17 @@ import com.massivecraft.mcore.MCore;
 import com.massivecraft.mcore.store.Coll;
 import com.massivecraft.mcore.store.MStore;
 
-public class ConfColl extends Coll<Conf>
+public class MConfColl extends Coll<MConf>
 {
 	// -------------------------------------------- //
 	// INSTANCE & CONSTRUCT
 	// -------------------------------------------- //
 	
-	private static ConfColl i = new ConfColl();
-	public static ConfColl get() { return i; }
-	private ConfColl()
+	private static MConfColl i = new MConfColl();
+	public static MConfColl get() { return i; }
+	private MConfColl()
 	{
-		super(Const.COLLECTION_BASENAME_CONF, Conf.class, MStore.getDb(ConfServer.dburi), MassiveHat.get());
+		super(Const.COLLECTION_MCONF, MConf.class, MStore.getDb(), MassiveHat.get());
 	}
 	
 	// -------------------------------------------- //
@@ -25,8 +25,7 @@ public class ConfColl extends Coll<Conf>
 	public void init()
 	{
 		super.init();
-		
-		Conf.i = this.get(MCore.INSTANCE, true);
+		MConf.i = this.get(MCore.INSTANCE, true);
 	}
 	
 }

@@ -6,10 +6,10 @@ import org.bukkit.GameMode;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
-import com.massivecraft.mcore.cmd.MCommand;
-import com.massivecraft.mcore.cmd.req.ReqIsPlayer;
+import com.massivecraft.massivecore.cmd.MassiveCommand;
+import com.massivecraft.massivecore.cmd.req.ReqIsPlayer;
 
-public class CmdHat extends MCommand
+public class CmdHat extends MassiveCommand
 {
 	// -------------------------------------------- //
 	// CONSTRUCT

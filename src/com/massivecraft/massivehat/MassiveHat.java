@@ -12,11 +12,11 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import com.massivecraft.mcore.MPlugin;
-import com.massivecraft.mcore.util.InventoryUtil;
+import com.massivecraft.massivecore.MassivePlugin;
+import com.massivecraft.massivecore.util.InventoryUtil;
 import com.tommytony.war.Team;
 
-public class MassiveHat extends MPlugin
+public class MassiveHat extends MassivePlugin
 {
 	// -------------------------------------------- //
 	// CONSTANTS

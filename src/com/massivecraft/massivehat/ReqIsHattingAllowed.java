@@ -3,10 +3,10 @@ package com.massivecraft.massivehat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.massivecraft.mcore.cmd.MCommand;
-import com.massivecraft.mcore.cmd.req.ReqAbstract;
-import com.massivecraft.mcore.util.PermUtil;
-import com.massivecraft.mcore.util.Txt;
+import com.massivecraft.massivecore.cmd.MassiveCommand;
+import com.massivecraft.massivecore.cmd.req.ReqAbstract;
+import com.massivecraft.massivecore.util.PermUtil;
+import com.massivecraft.massivecore.util.Txt;
 
 public class ReqIsHattingAllowed extends ReqAbstract
 {
@@ -24,13 +24,13 @@ public class ReqIsHattingAllowed extends ReqAbstract
 	// -------------------------------------------- //
 	
 	@Override
-	public boolean apply(CommandSender sender, MCommand command)
+	public boolean apply(CommandSender sender, MassiveCommand command)
 	{
 		return this.createErrorMessage(sender, command) == null;
 	}
 	
 	@Override
-	public String createErrorMessage(CommandSender sender, MCommand command)
+	public String createErrorMessage(CommandSender sender, MassiveCommand command)
 	{
 		if (!(sender instanceof Player))
 		{

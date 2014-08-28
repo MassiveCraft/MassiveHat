@@ -92,14 +92,7 @@ public class MassiveHat extends MassivePlugin
 	/*@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
     public void debug(InventoryClickEvent event)
     {
-		System.out.println("---");
-		System.out.println("getInventory().getType() "+event.getInventory().getType());
-		System.out.println("getView().getTopInventory().getType() "+event.getView().getTopInventory().getType());
-		System.out.println("getView().getType() "+event.getView().getType());
-		System.out.println("getView().getBottomInventory().getType() "+event.getView().getBottomInventory().getType());
-		System.out.println("event.getSlotType() "+event.getSlotType());
-		System.out.println("event.getRawSlot() "+event.getRawSlot());
-		System.out.println("event.getSlot() "+event.getSlot());
+		InventoryUtil.debug(event);
     }*/
 	
 	// -------------------------------------------- //

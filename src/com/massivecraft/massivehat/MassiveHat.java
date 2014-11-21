@@ -54,7 +54,7 @@ public class MassiveHat extends MassivePlugin
 		
 		// Commands
 		this.cmdHat = new CmdHat();
-		this.cmdHat.register();
+		this.cmdHat.register(this);
 		
 		postEnable();
 	}

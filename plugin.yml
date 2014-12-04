@@ -1,5 +1,5 @@
 name: MassiveHat
-version: 2.7.2
+version: 2.7.3
 main: com.massivecraft.massivehat.MassiveHat
 depend: [MassiveCore]
 # -------------------------------------------- #

@@ -16,6 +16,16 @@ public class MConfColl extends Coll<MConf>
 	{
 		super(Const.COLLECTION_MCONF, MConf.class, MStore.getDb(), MassiveHat.get());
 	}
+
+	// -------------------------------------------- //
+	// STACK TRACEABILITY
+	// -------------------------------------------- //
+	
+	@Override
+	public void onTick()
+	{
+		super.onTick();
+	}
 	
 	// -------------------------------------------- //
 	// OVERRIDE

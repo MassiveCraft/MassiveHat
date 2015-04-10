@@ -76,14 +76,11 @@ public class MassiveHat extends MassivePlugin
 		// ... and they are clicking their hat slot ...
 		if (event.getRawSlot() != RAW_HAT_SLOT_ID) return;
 		
-		// ... and the cursor isn't a pumpkin ..
-		if (event.getCursor().getType() == Material.PUMPKIN) return;
-		
 		// ... and the cursor is a hat ...
-		if (!isHat(event.getCursor())) return;
+		if ( ! isHat(event.getCursor())) return;
 		
 		// ... and hatting is allowed ...
-		if (!ReqIsHattingAllowed.get().apply(me)) return;
+		if ( ! ReqIsHattingAllowed.get().apply(me)) return;
 		
 		// ... then perform the switch.
 		doDenyingHardSwap(event);
@@ -99,13 +96,26 @@ public class MassiveHat extends MassivePlugin
 	// UTIL
 	// -------------------------------------------- //
 	
+	// With "hat" we mean something that is not usually equippable but should be.
+	@SuppressWarnings("deprecation")
 	public static boolean isHat(ItemStack itemStack)
 	{
+		// Nothingness should never be equipped
 		if (itemStack == null) return false;
 		if (itemStack.getAmount() == 0) return false;
 		if (itemStack.getType() == Material.AIR) return false;
-		if (itemStack.getType().isBlock() == false) return false;
-		return true;
+		
+		// Pumpkins are equippable per default
+		if (itemStack.getType() == Material.PUMPKIN) return false;
+		// However all other blocks are per default not equippable but should be!
+		if (itemStack.getType().isBlock()) return true;
+		
+		// We also want to allow banners
+		// For backwards compatibility below 1.8 we use the ID rather than the actual Material enumeration.
+		if (itemStack.getTypeId() == 425) return true;
+		
+		// Everything else is not allowed.
+		return false;
 	}
 	
 	public static boolean isInWarArena(CommandSender sender)

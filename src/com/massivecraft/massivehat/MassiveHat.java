@@ -14,6 +14,7 @@ import org.bukkit.plugin.Plugin;
 
 import com.massivecraft.massivecore.MassivePlugin;
 import com.massivecraft.massivecore.util.InventoryUtil;
+import com.massivecraft.massivecore.util.MUtil;
 import com.tommytony.war.Team;
 
 public class MassiveHat extends MassivePlugin
@@ -120,8 +121,7 @@ public class MassiveHat extends MassivePlugin
 	
 	public static boolean isInWarArena(CommandSender sender)
 	{
-		if (sender == null) return false;
-		if (!(sender instanceof Player)) return false;
+		if (MUtil.isntPlayer(sender)) return false;
 		Player player = (Player)sender;
 		Plugin test = Bukkit.getPluginManager().getPlugin("War");
 		if (test == null || !test.isEnabled()) return false;

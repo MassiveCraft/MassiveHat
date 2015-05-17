@@ -98,7 +98,6 @@ public class MassiveHat extends MassivePlugin
 	// -------------------------------------------- //
 	
 	// With "hat" we mean something that is not usually equippable but should be.
-	@SuppressWarnings("deprecation")
 	public static boolean isHat(ItemStack itemStack)
 	{
 		// Nothingness should never be equipped
@@ -112,8 +111,9 @@ public class MassiveHat extends MassivePlugin
 		if (itemStack.getType().isBlock()) return true;
 		
 		// We also want to allow banners
-		// For backwards compatibility below 1.8 we use the ID rather than the actual Material enumeration.
-		if (itemStack.getTypeId() == 425) return true;
+		// For backwards compatibility below 1.8 we use the raw string rather than enum comparison.
+		// Material.BANNER
+		if ("BANNER".equals(itemStack.getType().name())) return true;
 		
 		// Everything else is not allowed.
 		return false;

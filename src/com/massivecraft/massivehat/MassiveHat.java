@@ -50,6 +50,9 @@ public class MassiveHat extends MassivePlugin
 	{
 		if ( ! preEnable()) return;
 		
+		// Version Synchronized
+		this.setVersionSynchronized(true);
+		
 		// Collections
 		MConfColl.get().init();
 		

@@ -6,8 +6,8 @@ import org.bukkit.GameMode;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
-import com.massivecraft.massivecore.cmd.MassiveCommand;
-import com.massivecraft.massivecore.cmd.req.ReqIsPlayer;
+import com.massivecraft.massivecore.command.MassiveCommand;
+import com.massivecraft.massivecore.command.requirement.RequirementIsPlayer;
 
 public class CmdHat extends MassiveCommand
 {
@@ -18,7 +18,7 @@ public class CmdHat extends MassiveCommand
 	public CmdHat()
 	{
 		// Requirements
-		this.addRequirements(ReqIsPlayer.get());
+		this.addRequirements(RequirementIsPlayer.get());
 		this.addRequirements(ReqIsHattingAllowed.get());
 	}
 

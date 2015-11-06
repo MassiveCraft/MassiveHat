@@ -3,12 +3,12 @@ package com.massivecraft.massivehat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.massivecraft.massivecore.cmd.MassiveCommand;
-import com.massivecraft.massivecore.cmd.req.ReqAbstract;
+import com.massivecraft.massivecore.command.MassiveCommand;
+import com.massivecraft.massivecore.command.requirement.RequirementAbstract;
 import com.massivecraft.massivecore.util.PermUtil;
 import com.massivecraft.massivecore.util.Txt;
 
-public class ReqIsHattingAllowed extends ReqAbstract
+public class ReqIsHattingAllowed extends RequirementAbstract
 {
 	private static final long serialVersionUID = 1L;
 	

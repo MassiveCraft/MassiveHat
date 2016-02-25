@@ -31,36 +31,29 @@ public class MassiveHat extends MassivePlugin
 	
 	private static MassiveHat i;
 	public static MassiveHat get() { return i; }
-	public MassiveHat() { MassiveHat.i = this; }
-	
-	// -------------------------------------------- //
-	// FIELDS
-	// -------------------------------------------- //
-	
-	// Commands
-	private CmdHat cmdHat;
-	public CmdHat getCmdHat() { return this.cmdHat; }
+	public MassiveHat()
+	{
+		MassiveHat.i = this;
+		
+		// Version Synchronized
+		this.setVersionSynchronized(true);
+	}
 	
 	// -------------------------------------------- //
 	// OVERRIDE
 	// -------------------------------------------- //
 	
 	@Override
-	public void onEnable()
+	public void onEnableInner()
 	{
-		if ( ! preEnable()) return;
+		// Activate
+		this.activate(
+			// Coll
+			MConfColl.get(),
 		
-		// Version Synchronized
-		this.setVersionSynchronized(true);
-		
-		// Collections
-		MConfColl.get().init();
-		
-		// Commands
-		this.cmdHat = new CmdHat();
-		this.cmdHat.register(this);
-		
-		postEnable();
+			// Command
+			CmdHat.get()
+		);
 	}
 	
 	// -------------------------------------------- //

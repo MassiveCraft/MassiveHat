@@ -12,6 +12,13 @@ import com.massivecraft.massivecore.command.requirement.RequirementIsPlayer;
 public class CmdHat extends MassiveCommand
 {
 	// -------------------------------------------- //
+	// INSTANCE
+	// -------------------------------------------- //
+	
+	private static CmdHat i = new CmdHat();
+	public static CmdHat get() { return i; }
+	
+	// -------------------------------------------- //
 	// CONSTRUCT
 	// -------------------------------------------- //
 	

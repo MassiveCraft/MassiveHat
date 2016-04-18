@@ -3,11 +3,11 @@ package com.massivecraft.massivehat;
 import java.util.List;
 
 import org.bukkit.GameMode;
-import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
 import com.massivecraft.massivecore.command.MassiveCommand;
 import com.massivecraft.massivecore.command.requirement.RequirementIsPlayer;
+import com.massivecraft.massivecore.util.InventoryUtil;
 
 public class CmdHat extends MassiveCommand
 {
@@ -42,18 +42,17 @@ public class CmdHat extends MassiveCommand
 	@Override
 	public void perform()
 	{
-		EntityEquipment equipment = me.getEquipment();
-		final ItemStack inhand = equipment.getItemInHand();
-		final ItemStack helmet = equipment.getHelmet();
+		final ItemStack inhand = InventoryUtil.getWeapon(me);
+		final ItemStack helmet = InventoryUtil.getHelmet(me);
 		
-		if (!MassiveHat.isHat(inhand))
+		if ( ! MassiveHat.isHat(inhand))
 		{
 			msg("<b>You are not holding a hat in your hand.");
 			return;
 		}
 		
-		equipment.setHelmet(inhand);
-		equipment.setItemInHand(helmet);
+		InventoryUtil.setHelmet(me, inhand);
+		InventoryUtil.setWeapon(me, helmet);
 		
 		// This command is especially useful in creative mode since the normal inventory equip hack cannot be implemented there.
 		// The client does not the relevant packets to the server in creative mode inventory.

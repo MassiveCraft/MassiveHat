@@ -49,10 +49,10 @@ public class MassiveHat extends MassivePlugin
 		// Activate
 		this.activate(
 			// Coll
-			MConfColl.get(),
+			MConfColl.class,
 		
 			// Command
-			CmdHat.get()
+			CmdHat.class
 		);
 	}
 	

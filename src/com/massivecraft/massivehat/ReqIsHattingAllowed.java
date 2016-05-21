@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 import com.massivecraft.massivecore.command.MassiveCommand;
 import com.massivecraft.massivecore.command.requirement.RequirementAbstract;
-import com.massivecraft.massivecore.util.PermUtil;
+import com.massivecraft.massivecore.util.PermissionUtil;
 import com.massivecraft.massivecore.util.Txt;
 
 public class ReqIsHattingAllowed extends RequirementAbstract
@@ -39,12 +39,12 @@ public class ReqIsHattingAllowed extends RequirementAbstract
 		
 		if (MassiveHat.isInWarArena(sender) && !sender.hasPermission(Perm.WARUSE.node))
 		{
-			return PermUtil.getDeniedMessage(Perm.WARUSE.node);
+			return PermissionUtil.getDeniedMessage(Perm.WARUSE.node);
 		}
 		
 		if (!sender.hasPermission(Perm.USE.node))
 		{
-			return PermUtil.getDeniedMessage(Perm.USE.node);
+			return PermissionUtil.getDeniedMessage(Perm.USE.node);
 		}
 		
 		return null;

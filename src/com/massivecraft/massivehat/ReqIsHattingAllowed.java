@@ -39,12 +39,12 @@ public class ReqIsHattingAllowed extends RequirementAbstract
 		
 		if (MassiveHat.isInWarArena(sender) && !sender.hasPermission(Perm.WARUSE.node))
 		{
-			return PermissionUtil.getDeniedMessage(Perm.WARUSE.node);
+			return PermissionUtil.getPermissionDeniedMessage(Perm.WARUSE.node);
 		}
 		
 		if (!sender.hasPermission(Perm.USE.node))
 		{
-			return PermissionUtil.getDeniedMessage(Perm.USE.node);
+			return PermissionUtil.getPermissionDeniedMessage(Perm.USE.node);
 		}
 		
 		return null;

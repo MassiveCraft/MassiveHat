@@ -37,14 +37,14 @@ public class ReqIsHattingAllowed extends RequirementAbstract
 			return Txt.parse("<b>Only players can equip hats.");
 		}
 		
-		if (MassiveHat.isInWarArena(sender) && !sender.hasPermission(Perm.WARUSE.node))
+		if (MassiveHat.isInWarArena(sender) && !sender.hasPermission(Perm.WARUSE.getId()))
 		{
-			return PermissionUtil.getPermissionDeniedMessage(Perm.WARUSE.node);
+			return PermissionUtil.getPermissionDeniedMessage(Perm.WARUSE.getId());
 		}
 		
-		if (!sender.hasPermission(Perm.USE.node))
+		if (!sender.hasPermission(Perm.USE.getId()))
 		{
-			return PermissionUtil.getPermissionDeniedMessage(Perm.USE.node);
+			return PermissionUtil.getPermissionDeniedMessage(Perm.USE.getId());
 		}
 		
 		return null;

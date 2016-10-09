@@ -61,8 +61,8 @@ public class MassiveHat extends MassivePlugin
 	// -------------------------------------------- //
 	
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-    public void hatSwitch(InventoryClickEvent event)
-    {
+	public void hatSwitch(InventoryClickEvent event)
+	{
 		// If a player ...
 		if (!(event.getWhoClicked() instanceof Player)) return;
 		final Player me = (Player)event.getWhoClicked();
@@ -81,13 +81,13 @@ public class MassiveHat extends MassivePlugin
 		
 		// ... then perform the switch.
 		doDenyingHardSwap(event);
-    }
+	}
 	
 	/*@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
-    public void debug(InventoryClickEvent event)
-    {
+	public void debug(InventoryClickEvent event)
+	{
 		InventoryUtil.debug(event);
-    }*/
+	}*/
 	
 	// -------------------------------------------- //
 	// UTIL

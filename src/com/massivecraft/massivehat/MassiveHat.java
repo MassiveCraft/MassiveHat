@@ -1,21 +1,16 @@
 package com.massivecraft.massivehat;
 
+import com.massivecraft.massivecore.MassivePlugin;
+import com.massivecraft.massivecore.util.InventoryUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event.Result;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.event.Event.Result;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
-
-import com.massivecraft.massivecore.MassivePlugin;
-import com.massivecraft.massivecore.util.InventoryUtil;
-import com.massivecraft.massivecore.util.MUtil;
-import com.tommytony.war.Team;
 
 public class MassiveHat extends MassivePlugin
 {
@@ -113,16 +108,6 @@ public class MassiveHat extends MassivePlugin
 		
 		// Everything else is not allowed.
 		return false;
-	}
-	
-	public static boolean isInWarArena(CommandSender sender)
-	{
-		if (MUtil.isntPlayer(sender)) return false;
-		Player player = (Player)sender;
-		Plugin test = Bukkit.getPluginManager().getPlugin("War");
-		if (test == null || !test.isEnabled()) return false;
-		Team team = Team.getTeamByPlayerName(player.getName());
-		return team != null;
 	}
 
 	public static void doDenyingHardSwap(final InventoryClickEvent event)

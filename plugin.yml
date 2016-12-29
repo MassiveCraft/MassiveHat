@@ -10,4 +10,3 @@ depend: [MassiveCore]
 # -------------------------------------------- #
 permissions:
   massivehat.use: {description: wear any block as a hat, default: false}
-  massivehat.waruse: {description: wear any block as a hat in war-arenas, default: false}

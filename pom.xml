@@ -31,11 +31,6 @@
             <groupId>com.massivecraft.massivecore</groupId>
             <artifactId>MassiveCore</artifactId>
         </dependency>
-        <!-- WAR -->
-        <dependency>
-            <groupId>com.tommytony</groupId>
-            <artifactId>war</artifactId>
-        </dependency>
     </dependencies>
 
     <!-- Build -->

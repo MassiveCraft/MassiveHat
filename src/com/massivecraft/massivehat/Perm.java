@@ -12,7 +12,6 @@ public enum Perm implements Identified
 	// -------------------------------------------- //
 	
 	USE,
-	WARUSE,
 	
 	// END OF LIST
 	;

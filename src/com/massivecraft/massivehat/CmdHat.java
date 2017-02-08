@@ -2,12 +2,9 @@ package com.massivecraft.massivehat;
 
 import java.util.List;
 
-import org.bukkit.GameMode;
-import org.bukkit.inventory.ItemStack;
-
 import com.massivecraft.massivecore.command.MassiveCommand;
-import com.massivecraft.massivecore.command.requirement.RequirementIsPlayer;
-import com.massivecraft.massivecore.util.InventoryUtil;
+import com.massivecraft.massivecore.command.MassiveCommandVersion;
+import com.massivecraft.massivecore.command.requirement.RequirementHasPerm;
 
 public class CmdHat extends MassiveCommand
 {
@@ -19,14 +16,26 @@ public class CmdHat extends MassiveCommand
 	public static CmdHat get() { return i; }
 	
 	// -------------------------------------------- //
+	// FIELDS
+	// -------------------------------------------- //
+	
+	public CmdHatUse cmdHatUse = new CmdHatUse();
+	public CmdHatConfig cmdHatConfig = new CmdHatConfig();
+	public MassiveCommandVersion cmdVersion = new MassiveCommandVersion(MassiveHat.get()).addRequirements(RequirementHasPerm.get(Perm.VERSION));
+	
+	// -------------------------------------------- //
 	// CONSTRUCT
 	// -------------------------------------------- //
 	
 	public CmdHat()
 	{
+		// Children
+		this.addChild(this.cmdHatUse);
+		this.addChild(this.cmdHatConfig);
+		this.addChild(this.cmdVersion);
+		
 		// Requirements
-		this.addRequirements(RequirementIsPlayer.get());
-		this.addRequirements(ReqIsHattingAllowed.get());
+		this.addRequirements(RequirementHasPerm.get(Perm.BASECOMMAND));
 	}
 
 	// -------------------------------------------- //
@@ -37,30 +46,6 @@ public class CmdHat extends MassiveCommand
 	public List<String> getAliases()
 	{
 		return MConf.get().aliasesHat;
-	}
-	
-	@Override
-	public void perform()
-	{
-		final ItemStack inhand = InventoryUtil.getWeapon(me);
-		final ItemStack helmet = InventoryUtil.getHelmet(me);
-		
-		if ( ! MassiveHat.isHat(inhand))
-		{
-			msg("<b>You are not holding a hat in your hand.");
-			return;
-		}
-		
-		InventoryUtil.setHelmet(me, inhand);
-		InventoryUtil.setWeapon(me, helmet);
-		
-		// This command is especially useful in creative mode since the normal inventory equip hack cannot be implemented there.
-		// The client does not the relevant packets to the server in creative mode inventory.
-		if (me.getGameMode() != GameMode.CREATIVE)
-		{
-			msg("<h>NOTE: <i>You can equip in your inventory <h>like a regular helmet<i>.");
-		}
-		
 	}
 	
 }

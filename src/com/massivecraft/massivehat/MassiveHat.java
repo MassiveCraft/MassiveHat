@@ -47,7 +47,8 @@ public class MassiveHat extends MassivePlugin
 			MConfColl.class,
 		
 			// Command
-			CmdHat.class
+			CmdHat.class,
+			CmdHatUse.class
 		);
 	}
 	

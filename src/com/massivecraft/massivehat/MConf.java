@@ -2,9 +2,11 @@ package com.massivecraft.massivehat;
 
 import java.util.List;
 
+import com.massivecraft.massivecore.command.editor.annotation.EditorName;
 import com.massivecraft.massivecore.store.Entity;
 import com.massivecraft.massivecore.util.MUtil;
 
+@EditorName("config")
 public class MConf extends Entity<MConf>
 {
 	// -------------------------------------------- //
@@ -18,6 +20,11 @@ public class MConf extends Entity<MConf>
 	// FIELDS
 	// -------------------------------------------- //
 	
-	public List<String> aliasesHat = MUtil.list("hat", "blockhat", "massivehat", "mhat");
+	public List<String> aliasesHat = MUtil.list("massivehat");
 
+	public List<String> aliasesHatUseInner = MUtil.list("use", "wear", "apply");
+	public List<String> aliasesHatUseOutter = MUtil.list("usehat", "hat", "blockhat", "mhat");
+
+	public List<String> aliasesConfigEditInner = MUtil.list("config");
+	
 }

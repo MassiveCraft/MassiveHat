@@ -13,6 +13,12 @@ public enum Perm implements Identified
 	
 	USE,
 	
+	CONFIG,
+	
+	BASECOMMAND,
+	
+	VERSION,
+	
 	// END OF LIST
 	;
 	

@@ -26,13 +26,7 @@ public class MassiveHat extends MassivePlugin
 	
 	private static MassiveHat i;
 	public static MassiveHat get() { return i; }
-	public MassiveHat()
-	{
-		MassiveHat.i = this;
-		
-		// Version Synchronized
-		this.setVersionSynchronized(true);
-	}
+	public MassiveHat() { MassiveHat.i = this; }
 	
 	// -------------------------------------------- //
 	// OVERRIDE

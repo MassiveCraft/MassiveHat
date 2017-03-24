@@ -1,10 +1,10 @@
 package com.massivecraft.massivehat;
 
-import java.util.List;
-
 import com.massivecraft.massivecore.command.MassiveCommand;
 import com.massivecraft.massivecore.command.MassiveCommandVersion;
 import com.massivecraft.massivecore.command.requirement.RequirementHasPerm;
+
+import java.util.List;
 
 public class CmdHat extends MassiveCommand
 {

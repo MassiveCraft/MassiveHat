@@ -1,12 +1,11 @@
 package com.massivecraft.massivehat;
 
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 import com.massivecraft.massivecore.command.MassiveCommand;
 import com.massivecraft.massivecore.command.requirement.RequirementAbstract;
 import com.massivecraft.massivecore.util.PermissionUtil;
 import com.massivecraft.massivecore.util.Txt;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class ReqIsHattingAllowed extends RequirementAbstract
 {

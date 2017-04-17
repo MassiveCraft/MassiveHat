@@ -10,11 +10,11 @@ public enum Perm implements Identified
 	// ENUM
 	// -------------------------------------------- //
 	
+	BASECOMMAND,
+	
 	USE,
 	
 	CONFIG,
-	
-	BASECOMMAND,
 	
 	VERSION,
 	

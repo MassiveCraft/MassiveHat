@@ -1,9 +1,12 @@
-package com.massivecraft.massivehat;
+package com.massivecraft.massivehat.cmd;
 
 import com.massivecraft.massivecore.command.MassiveCommand;
 import com.massivecraft.massivecore.command.requirement.RequirementHasPerm;
 import com.massivecraft.massivecore.command.requirement.RequirementIsPlayer;
 import com.massivecraft.massivecore.util.InventoryUtil;
+import com.massivecraft.massivehat.Perm;
+import com.massivecraft.massivehat.entity.MConf;
+import com.massivecraft.massivehat.predicate.PredicateIsHat;
 import org.bukkit.GameMode;
 import org.bukkit.inventory.ItemStack;
 
@@ -15,7 +18,7 @@ public class CmdHatUse extends MassiveCommand
 	// INSTANCE
 	// -------------------------------------------- //
 	
-	private static CmdHatUse i = new CmdHatUse() { @Override public List<String> getAliases() { return MConf.get().aliasesHatUseOutter; }};
+	private static CmdHatUse i = new CmdHatUse() { @Override public List<String> getAliases() { return MConf.get().aliasesHatUseOuter; }};
 	public static CmdHatUse get() { return i; }
 	
 	// -------------------------------------------- //
@@ -39,7 +42,7 @@ public class CmdHatUse extends MassiveCommand
 		final ItemStack inhand = InventoryUtil.getWeapon(me);
 		final ItemStack helmet = InventoryUtil.getHelmet(me);
 		
-		if ( ! MassiveHat.isHat(inhand))
+		if (!PredicateIsHat.getHeadwear().apply(inhand))
 		{
 			msg("<b>You are not holding a hat in your hand.");
 			return;

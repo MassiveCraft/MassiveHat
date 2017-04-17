@@ -1,8 +1,9 @@
-package com.massivecraft.massivehat;
+package com.massivecraft.massivehat.cmd;
 
 import com.massivecraft.massivecore.command.MassiveCommand;
-import com.massivecraft.massivecore.command.MassiveCommandVersion;
 import com.massivecraft.massivecore.command.requirement.RequirementHasPerm;
+import com.massivecraft.massivehat.Perm;
+import com.massivecraft.massivehat.entity.MConf;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class CmdHat extends MassiveCommand
 	
 	public CmdHatUse cmdHatUse = new CmdHatUse();
 	public CmdHatConfig cmdHatConfig = new CmdHatConfig();
-	public MassiveCommandVersion cmdVersion = new MassiveCommandVersion(MassiveHat.get()).addRequirements(RequirementHasPerm.get(Perm.VERSION));
+	public CmdHatVersion cmdHatVersion = new CmdHatVersion();
 	
 	// -------------------------------------------- //
 	// CONSTRUCT
@@ -32,7 +33,7 @@ public class CmdHat extends MassiveCommand
 		// Children
 		this.addChild(this.cmdHatUse);
 		this.addChild(this.cmdHatConfig);
-		this.addChild(this.cmdVersion);
+		this.addChild(this.cmdHatVersion);
 		
 		// Requirements
 		this.addRequirements(RequirementHasPerm.get(Perm.BASECOMMAND));

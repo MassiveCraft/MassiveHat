@@ -12,7 +12,7 @@ permissions:
   massivehat.basecommand: {description: use the base command of MassiveHat, default: false}
   massivehat.use:         {description: wear any block as a hat, default: false}
   massivehat.config:      {description: edit the MassiveHat config, default: false}
-  massivehat.version:     {description: diplay plugin version, default: false}
+  massivehat.version:     {description: display plugin version, default: false}
 
 # -------------------------------------------- #
 # STAR NOTATION

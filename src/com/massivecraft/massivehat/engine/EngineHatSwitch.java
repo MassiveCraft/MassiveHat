@@ -8,6 +8,7 @@ import com.massivecraft.massivehat.Perm;
 import com.massivecraft.massivehat.entity.MConf;
 import com.massivecraft.massivehat.predicate.PredicateIsHat;
 import org.bukkit.Bukkit;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -61,6 +62,10 @@ public class EngineHatSwitch extends Engine
 		
 		// ... and hatting is allowed ...
 		if (!Perm.USE.has(me, MConf.get().hatPlacePermDenyVerbose)) return;
+
+		//...and the hat does not have Curse of Binding...
+		final ItemStack helmet = InventoryUtil.getHelmet(me);
+		if (helmet != null && helmet.getItemMeta().hasEnchant(Enchantment.BINDING_CURSE)) return;
 		
 		// ... then perform the switch.
 		// We deny the normal result

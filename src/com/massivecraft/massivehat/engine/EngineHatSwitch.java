@@ -63,9 +63,9 @@ public class EngineHatSwitch extends Engine
 		// ... and hatting is allowed ...
 		if (!Perm.USE.has(me, MConf.get().hatPlacePermDenyVerbose)) return;
 
-		// ... and the hat does not have Curse of Binding ...
+		//...and the hat does not have Curse of Binding...
 		final ItemStack helmet = InventoryUtil.getHelmet(me);
-		if (helmet != null && helmet.getItemMeta().hasEnchant(Enchantment.getByName("BINDING_CURSE"))) return;
+		if (helmet != null && helmet.getItemMeta().hasEnchant(Enchantment.BINDING_CURSE)) return;
 		
 		// ... then perform the switch.
 		// We deny the normal result
